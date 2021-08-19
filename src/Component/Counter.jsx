@@ -11,8 +11,8 @@ export class Counter extends Component {
     
     render() {
         const {info}=this.props;
-       
-        const {onIncrement,onDecrement,onDelete,enabled}=this.props;
+        const {onIncrement,onDecrement,onDelete}=this.props;
+        
         return (
             <div className="row mb-2">
                 <div className="col">
