@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import Counter from './Counter'
+import Counters from './Counters';
+import Navbar from './Navbar';
 
 export class Common extends Component {
     constructor(props) {
@@ -53,16 +54,18 @@ export class Common extends Component {
     render() {
         return (
             <div>
+               
+
                 <h1 className="display-4 text-center border">Counter App</h1>
-                <button className="btn btn-primary m-2" onClick={this.resetHandler}>Reset</button>   
-                {this.state.counters.map((counter,index)=>{
-                   return <Counter key={counter.id} info={counter} 
-                   onIncrement={this.incrementHandler}
+                <Navbar totalCounter={this.state.counters.filter(counter=>counter.value > 0).length }/>
+               
+                <Counters counters={this.state.counters} 
+                    onIncrement={this.incrementHandler}
                    onDecrement={this.decrementHandler}
                    onDelete={this.deleteHandler}
-                   
-                   />
-                })}
+                   onReset={this.resetHandler}
+                />
+                
             </div>
         )
     }
